@@ -1,36 +1,29 @@
 import React, { useState } from "react";
 
-function TextSectionApp() {
-  // Definimos el estado para controlar si la sección de texto debe mostrarse o no
-  // Inicialmente, la sección está oculta, por lo que el valor es 'false'
-  const [showText, setShowText] = useState(false);
+function CounterApp() {
+  // Definimos el estado inicial del contador con un valor de 0
+  const [count, setCount] = useState(0);
 
-  // Función que se llama cuando se hace clic en el botón para mostrar u ocultar la sección de texto
-  const handleButtonClick = () => {
-    // Cambiamos el valor del estado a su opuesto (es decir, 'true' si estaba en 'false', y viceversa)
-    setShowText(!showText);
+  // Funciones que se llaman cuando se hace clic en los botones para incrementar o decrementar el contador
+  const handleIncrement = () => {
+    setCount(count + 1);
   };
 
-  // Renderizamos la aplicación, que consiste en un botón y una sección de texto que se muestra u oculta según el estado del valor 'showText'
+  const handleDecrement = () => {
+    setCount(count - 1);
+  };
+
+  // Renderizamos la aplicación, que consiste en el contador y dos botones para incrementar o decrementar su valor
   return (
     <div>
-      <h1>Text Section App</h1>
-      <button onClick={handleButtonClick}>
-        {showText ? "Hide Text" : "Show Text"}
-      </button>
-      {showText && (
-        <p>
-    La naturaleza es un concepto utilizado 
-    para referirse al mundo material o universo material,
-    incluyendo los fenómenos del mundo físico, 
-    la materia inerte generada como parte de procesos
-    sin la intervención humana,
-    y al fenómeno de la vida,
-    que incluye también a los humanos.
-        </p>
-      )}
+      <h1>Counter App</h1>
+      <p>Count: {count}</p>
+      <button onClick={handleIncrement}>Increment</button>
+      <button onClick={handleDecrement}>Decrement</button>
     </div>
   );
 }
 
-export default TextSectionApp;
+
+
+export default CounterApp;
